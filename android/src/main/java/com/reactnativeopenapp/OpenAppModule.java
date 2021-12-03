@@ -1,12 +1,19 @@
 package com.reactnativeopenapp;
 
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 
-import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.module.annotations.ReactModule;
+
+import java.util.List;
 
 @ReactModule(name = OpenAppModule.NAME)
 public class OpenAppModule extends ReactContextBaseJavaModule {
