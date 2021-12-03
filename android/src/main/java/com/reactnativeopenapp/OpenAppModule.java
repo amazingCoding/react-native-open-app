@@ -12,15 +12,18 @@ import androidx.annotation.NonNull;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.module.annotations.ReactModule;
 
 import java.util.List;
 
 @ReactModule(name = OpenAppModule.NAME)
 public class OpenAppModule extends ReactContextBaseJavaModule {
     public static final String NAME = "OpenApp";
+  private ReactApplicationContext reactContext = null;
 
     public OpenAppModule(ReactApplicationContext reactContext) {
-        super(reactContext);
+      super(reactContext);
+      this.reactContext =reactContext;
     }
 
     @Override
