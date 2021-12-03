@@ -22,13 +22,19 @@ public class OpenAppModule extends ReactContextBaseJavaModule {
         return NAME;
     }
 
-
-    // Example method
-    // See https://reactnative.dev/docs/native-modules-android
     @ReactMethod
-    public void multiply(int a, int b, Promise promise) {
-        promise.resolve(a * b);
+    public void openApp(String packName){
+        Intent intent = reactContext.getPackageManager().getLaunchIntentForPackage(packName);
+        if(intent != null){
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            reactContext.startActivity(intent);
+        }
+        else {
+            Intent intent2 = new Intent(Intent.ACTION_VIEW);
+            intent2.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + packName));
+            intent2.setPackage("com.android.vending");
+            intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            reactContext.startActivity(intent2);
+        }
     }
-
-    public static native int nativeMultiply(int a, int b);
 }

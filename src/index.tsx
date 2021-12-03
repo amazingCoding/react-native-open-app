@@ -1,9 +1,3 @@
-import { NativeModules } from 'react-native';
-
-type OpenAppType = {
-  multiply(a: number, b: number): Promise<number>;
-};
-
-const { OpenApp } = NativeModules;
-
-export default OpenApp as OpenAppType;
+import { NativeModules, Platform } from 'react-native';
+const openApp = Platform.OS === 'android' ? NativeModules.OpenApp?.openApp : null
+export default openApp
