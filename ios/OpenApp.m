@@ -2,5 +2,4 @@
 
 @implementation OpenApp
 
-RCT_EXPORT_MODULE()
 @end
